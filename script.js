@@ -11,7 +11,7 @@ const colors = [
 ];
 
 // Número do WhatsApp (edite facilmente aqui)
-const WHATSAPP_NUMBER = '5548999999999';
+const WHATSAPP_NUMBER = '5548999662043';
 
 const canvas = document.getElementById('wheel');
 const ctx = canvas.getContext('2d');
@@ -56,7 +56,7 @@ function drawWheel(rotation = 0) {
     ctx.rotate(startAngle + sliceAngle / 2);
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 34px Baloo 2';
+    ctx.font = 'bold 52px Baloo 2';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
