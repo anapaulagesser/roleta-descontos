@@ -22,7 +22,7 @@ const whatsappBtn = document.getElementById('whatsappBtn');
 
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
-const radius = 220;
+const radius = 240;
 const sliceAngle = (2 * Math.PI) / slices.length;
 
 let currentRotation = 0;
@@ -51,33 +51,32 @@ function drawWheel(rotation = 0) {
     ctx.stroke();
 
     // 🔢 TEXTO (CORRIGIDO)
-    ctx.save();
+  ctx.save();
 
-    ctx.translate(centerX, centerY);
-    ctx.rotate(startAngle + sliceAngle / 2);
+  ctx.translate(centerX, centerY);
+  ctx.rotate(startAngle + sliceAngle / 2);
 
-    ctx.fillStyle = '#ffffff';
+// 🔥 TEXTO GRANDE DE VERDADE
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 72px Baloo 2';
 
-    // 🔥 TAMANHO IDEAL (grande sem quebrar)
-    ctx.font = 'bold 48px Baloo 2';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
 
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+// 🔥 POSIÇÃO PERFEITA (mais perto do centro = parece maior)
+  ctx.fillText(`${slices[i]}%`, radius * 0.5, 0);
 
-    // 🔥 POSIÇÃO AJUSTADA (não encosta na borda)
-    ctx.fillText(`${slices[i]}%`, radius * 0.6, 0);
-
-    ctx.restore();
+  ctx.restore();
   }
 
   // 🎯 Centro da roleta (IMPORTANTE — isso que sumiu antes)
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 38, 0, 2 * Math.PI);
+  ctx.arc(centerX, centerY, 28, 0, 2 * Math.PI);
   ctx.fillStyle = '#ffffff';
   ctx.fill();
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 18, 0, 2 * Math.PI);
+  ctx.arc(centerX, centerY, 12, 0, 2 * Math.PI);
   ctx.fillStyle = '#ff3d71';
   ctx.fill();
 }
