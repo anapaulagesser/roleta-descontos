@@ -71,14 +71,20 @@ function drawWheel(rotation = 0) {
 ctx.translate(centerX, centerY);
 ctx.rotate(startAngle + sliceAngle / 2);
 
-ctx.fillStyle = '#ffffff';
+// 🔥 TAMANHO GRANDE RESPONSIVO
+const fontSize = canvas.width * 0.11;
 
-// 🔥 TAMANHO RESPONSIVO REAL
-ctx.font = `bold ${canvas.width * 0.09}px Baloo 2`;
-
+ctx.font = `900 ${fontSize}px Baloo 2`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 
+// 🔥 CONTORNO (ISS0 FAZ TODA DIFERENÇA)
+ctx.lineWidth = fontSize * 0.18;
+ctx.strokeStyle = '#ffffff';
+ctx.strokeText(`${slices[i]}%`, radius * 0.55, 0);
+
+// 🔥 TEXTO ESCURO (contraste máximo)
+ctx.fillStyle = '#333';
 ctx.fillText(`${slices[i]}%`, radius * 0.55, 0);
 
 ctx.restore();
