@@ -51,19 +51,20 @@ function drawWheel(rotation = 0) {
     ctx.stroke();
 
     // Texto
-    ctx.save();
-    ctx.translate(centerX, centerY);
-    ctx.rotate(startAngle + sliceAngle / 2);
+ctx.save();
+ctx.translate(centerX, centerY);
+ctx.rotate(startAngle + sliceAngle / 2);
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 52px Baloo 2';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+// 🔥 AUMENTA BASTANTE O TAMANHO
+ctx.fillStyle = '#ffffff';
+ctx.font = 'bold 64px Baloo 2'; // <-- AQUI está o aumento real
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
 
-    ctx.fillText(`${slices[i]}%`, radius * 0.67, 0);
+// 🔥 PUXA MAIS PARA DENTRO (melhor centralização visual)
+ctx.fillText(`${slices[i]}%`, radius * 0.55, 0);
 
-    ctx.restore();
-  }
+ctx.restore();
 
   // Círculo central
   ctx.beginPath();
