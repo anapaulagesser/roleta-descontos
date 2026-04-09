@@ -73,16 +73,18 @@ ctx.rotate(startAngle + sliceAngle / 2);
 
 const fontSize = canvas.width * 0.09;
 
-ctx.font = `900 ${fontSize}px Baloo 2`;
+ctx.font = `800 ${fontSize}px Baloo 2`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 
-// 🔥 CONTORNO PRETO (primeiro)
-ctx.lineWidth = fontSize * 0.12;
-ctx.strokeStyle = '#000000';
+// 🔥 CONTORNO SUAVE (não preto puro)
+ctx.lineWidth = fontSize * 0.06;
+ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+ctx.lineJoin = 'round';
+
 ctx.strokeText(`${slices[i]}%`, radius * 0.58, 0);
 
-// 🔥 TEXTO BRANCO POR CIMA
+// 🔥 TEXTO PRINCIPAL
 ctx.fillStyle = '#ffffff';
 ctx.fillText(`${slices[i]}%`, radius * 0.58, 0);
 
