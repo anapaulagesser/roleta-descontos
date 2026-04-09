@@ -36,7 +36,7 @@ function drawWheel(rotation = 0) {
     const startAngle = i * sliceAngle + rotation;
     const endAngle = startAngle + sliceAngle;
 
-    // Fatia
+    // 🎨 Fatia
     ctx.beginPath();
     ctx.moveTo(centerX, centerY);
     ctx.arc(centerX, centerY, radius, startAngle, endAngle);
@@ -45,27 +45,32 @@ function drawWheel(rotation = 0) {
     ctx.fillStyle = colors[i];
     ctx.fill();
 
-    // Borda
+    // 🔲 Borda
     ctx.lineWidth = 4;
     ctx.strokeStyle = '#ffffff';
     ctx.stroke();
 
-    // Texto
+    // 🔢 TEXTO (CORRIGIDO)
     ctx.save();
+
     ctx.translate(centerX, centerY);
     ctx.rotate(startAngle + sliceAngle / 2);
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 52px Baloo 2';
+
+    // 🔥 TAMANHO IDEAL (grande sem quebrar)
+    ctx.font = 'bold 48px Baloo 2';
+
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    ctx.fillText(`${slices[i]}%`, radius * 0.67, 0);
+    // 🔥 POSIÇÃO AJUSTADA (não encosta na borda)
+    ctx.fillText(`${slices[i]}%`, radius * 0.6, 0);
 
     ctx.restore();
   }
 
-  // Círculo central
+  // 🎯 Centro da roleta (IMPORTANTE — isso que sumiu antes)
   ctx.beginPath();
   ctx.arc(centerX, centerY, 38, 0, 2 * Math.PI);
   ctx.fillStyle = '#ffffff';
@@ -76,7 +81,6 @@ function drawWheel(rotation = 0) {
   ctx.fillStyle = '#ff3d71';
   ctx.fill();
 }
-
 // Easing suave
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
