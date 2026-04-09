@@ -1,3 +1,18 @@
+function resizeCanvas() {
+  const size = canvas.offsetWidth;
+
+  canvas.width = size;
+  canvas.height = size;
+
+  // recalcula centro e raio
+  centerX = canvas.width / 2;
+  centerY = canvas.height / 2;
+
+  radius = canvas.width * 0.42;
+
+  drawWheel(currentRotation);
+}
+
 // Valores da roleta
 const slices = [10, 15, 20, 25, 30];
 
@@ -20,9 +35,9 @@ const resultBox = document.getElementById('result');
 const resultText = document.getElementById('resultText');
 const whatsappBtn = document.getElementById('whatsappBtn');
 
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2;
-const radius = 240;
+let centerX;
+let centerY;
+let radius;
 const sliceAngle = (2 * Math.PI) / slices.length;
 
 let currentRotation = 0;
@@ -53,20 +68,20 @@ function drawWheel(rotation = 0) {
     // 🔢 TEXTO (CORRIGIDO)
   ctx.save();
 
-  ctx.translate(centerX, centerY);
-  ctx.rotate(startAngle + sliceAngle / 2);
+ctx.translate(centerX, centerY);
+ctx.rotate(startAngle + sliceAngle / 2);
 
-// 🔥 TEXTO GRANDE DE VERDADE
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 72px Baloo 2';
+ctx.fillStyle = '#ffffff';
 
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
+// 🔥 TAMANHO RESPONSIVO REAL
+ctx.font = `bold ${canvas.width * 0.09}px Baloo 2`;
 
-// 🔥 POSIÇÃO PERFEITA (mais perto do centro = parece maior)
-  ctx.fillText(`${slices[i]}%`, radius * 0.5, 0);
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
 
-  ctx.restore();
+ctx.fillText(`${slices[i]}%`, radius * 0.55, 0);
+
+ctx.restore();
   }
 
   // 🎯 Centro da roleta (IMPORTANTE — isso que sumiu antes)
@@ -183,3 +198,6 @@ currentRotation = -Math.PI / 2;
 drawWheel(currentRotation);
 
 spinBtn.addEventListener('click', spinWheel);
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
