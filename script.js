@@ -18,11 +18,11 @@ const slices = [10, 15, 20, 25, 30];
 
 // Cores das fatias
 const colors = [
-  '#ff5fa2',
-  '#5ec8ff',
-  '#ffe45c',
-  '#7be495',
-  '#b388ff'
+  '#ff4f93', // rosa mais forte
+  '#4fb6e8', // azul mais vibrante
+  '#ffd93d', // amarelo mais intenso
+  '#5fd38c', // verde mais vivo
+  '#9b6bff'  // roxo mais forte
 ];
 
 // Número do WhatsApp (edite facilmente aqui)
@@ -71,21 +71,21 @@ function drawWheel(rotation = 0) {
 ctx.translate(centerX, centerY);
 ctx.rotate(startAngle + sliceAngle / 2);
 
-// 🔥 TAMANHO GRANDE RESPONSIVO
-const fontSize = canvas.width * 0.11;
+const fontSize = canvas.width * 0.085;
 
-ctx.font = `900 ${fontSize}px Baloo 2`;
+ctx.font = `800 ${fontSize}px Baloo 2`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 
-// 🔥 CONTORNO (ISS0 FAZ TODA DIFERENÇA)
-ctx.lineWidth = fontSize * 0.18;
-ctx.strokeStyle = '#ffffff';
-ctx.strokeText(`${slices[i]}%`, radius * 0.55, 0);
+// 🔥 SOMBRA SUAVE (profissional)
+ctx.shadowColor = 'rgba(0,0,0,0.25)';
+ctx.shadowBlur = 4;
 
-// 🔥 TEXTO ESCURO (contraste máximo)
-ctx.fillStyle = '#333';
-ctx.fillText(`${slices[i]}%`, radius * 0.55, 0);
+// 🔥 TEXTO BRANCO LIMPO (sem contorno feio)
+ctx.fillStyle = '#ffffff';
+
+// 🔥 POSIÇÃO PERFEITA
+ctx.fillText(`${slices[i]}%`, radius * 0.58, 0);
 
 ctx.restore();
   }
