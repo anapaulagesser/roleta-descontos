@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg, #ff7eb9, #7cc8ff, #ffe66d);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background-shapes::before,
+.background-shapes::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.background-shapes::before {
+  width: 320px;
+  height: 320px;
+  background: #ffffff;
+  top: -80px;
+  left: -80px;
+}
+
+.background-shapes::after {
+  width: 260px;
+  height: 260px;
+  background: #fff;
+  bottom: -60px;
+  right: -60px;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 170px;
+  max-width: 80%;
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  font-size: 2.7rem;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 6px;
+}
+
+.wheel-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheel-wrapper {
+  position: relative;
+  width: min(88vw, 500px);
+  height: min(88vw, 500px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.25),
+    inset 0 0 0 12px #fff,
+    inset 0 0 0 18px #ffde59;
+}
+
+.pointer {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 0;
+  border-bottom: 40px solid #ff3d71;
+  z-index: 10;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+.pointer::after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+}
+
+#spinBtn {
+  border: none;
+  background: linear-gradient(90deg, #ff4fa1, #ff8a00);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 16px 34px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(255, 79, 161, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#spinBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+#spinBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 28px;
+  text-align: center;
+  background: rgba(255,255,255,0.95);
+  padding: 22px;
+  border-radius: 24px;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.result h2 {
+  color: #ff3d71;
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+  background: #25d366;
+  color: white;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  #spinBtn {
+    width: 100%;
+    max-width: 320px;
+    font-size: 1.1rem;
+  }
+
+  .result h2 {
+    font-size: 1.45rem;
+  }
+}
+

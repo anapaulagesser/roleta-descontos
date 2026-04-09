@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roleta de Descontos - Loja Infantil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="background-shapes"></div>
+
+  <main class="container">
+    <header class="header">
+      <img src="logo.png.jpeg" alt="Logo da Loja" class="logo">
+      <h1>Gire a Roleta e Ganhe seu Desconto ✨</h1>
+      <p>Você tem apenas uma chance!</p>
+    </header>
+
+    <section class="wheel-section">
+      <div class="wheel-wrapper">
+
+        <div class="pointer"></div>
+
+        <canvas id="wheel" width="500" height="500"></canvas>
+      </div>
+
+      <button id="spinBtn">GIRAR ROLETA 🎡</button>
+
+      <div id="result" class="result hidden">
+        <h2 id="resultText"></h2>
+
+        <a id="whatsappBtn" class="whatsapp-btn hidden" target="_blank">
+          Falar no WhatsApp 💬
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="confetti"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
