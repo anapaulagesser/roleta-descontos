@@ -71,20 +71,19 @@ function drawWheel(rotation = 0) {
 ctx.translate(centerX, centerY);
 ctx.rotate(startAngle + sliceAngle / 2);
 
-const fontSize = canvas.width * 0.085;
+const fontSize = canvas.width * 0.09;
 
-ctx.font = `800 ${fontSize}px Baloo 2`;
+ctx.font = `900 ${fontSize}px Baloo 2`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 
-// 🔥 SOMBRA SUAVE (profissional)
-ctx.shadowColor = 'rgba(0,0,0,0.25)';
-ctx.shadowBlur = 4;
+// 🔥 CONTORNO PRETO (primeiro)
+ctx.lineWidth = fontSize * 0.12;
+ctx.strokeStyle = '#000000';
+ctx.strokeText(`${slices[i]}%`, radius * 0.58, 0);
 
-// 🔥 TEXTO BRANCO LIMPO (sem contorno feio)
+// 🔥 TEXTO BRANCO POR CIMA
 ctx.fillStyle = '#ffffff';
-
-// 🔥 POSIÇÃO PERFEITA
 ctx.fillText(`${slices[i]}%`, radius * 0.58, 0);
 
 ctx.restore();
