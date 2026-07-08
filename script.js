@@ -4,25 +4,27 @@ function resizeCanvas() {
   canvas.width = size;
   canvas.height = size;
 
-  // recalcula centro e raio
   centerX = canvas.width / 2;
   centerY = canvas.height / 2;
 
   radius = canvas.width * 0.42;
 
+  sliceAngle = (2 * Math.PI) / slices.length;
+
   drawWheel(currentRotation);
 }
 
 // Valores da roleta
-const slices = [10, 15, 20, 25, 30];
+const slices = [30, 40, 50, 30, 40, 50];
 
 // Cores das fatias
 const colors = [
-  '#ff4f93', // rosa mais forte
-  '#4fb6e8', // azul mais vibrante
-  '#ffd93d', // amarelo mais intenso
-  '#5fd38c', // verde mais vivo
-  '#9b6bff'  // roxo mais forte
+  '#ff4f93', // rosa
+  '#4fb6e8', // azul
+  '#ffd93d', // amarelo
+  '#5fd38c', // verde
+  '#9b6bff', // roxo
+  '#ff914d'  // laranja
 ];
 
 // Número do WhatsApp (edite facilmente aqui)
@@ -38,7 +40,7 @@ const whatsappBtn = document.getElementById('whatsappBtn');
 let centerX;
 let centerY;
 let radius;
-const sliceAngle = (2 * Math.PI) / slices.length;
+let sliceAngle = (2 * Math.PI) / slices.length;
 
 let currentRotation = 0;
 let spinning = false;
