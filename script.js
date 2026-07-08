@@ -73,40 +73,34 @@ function drawWheel(rotation = 0) {
 ctx.translate(centerX, centerY);
 ctx.rotate(startAngle + sliceAngle / 2);
 
-const textRadius = radius * 0.67;
+const fontSize = canvas.width * 0.09;
 
-const percentSize = canvas.width * 0.105;
-const offSize = percentSize * 0.50;
+ctx.font = `800 ${fontSize}px Baloo 2`;
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
 
-ctx.textAlign = "center";
-ctx.textBaseline = "middle";
+// 🔥 CONTORNO SUAVE (não preto puro)
+ctx.lineWidth = fontSize * 0.06;
+ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+ctx.lineJoin = 'round';
 
-// porcentagem
-ctx.font = `900 ${percentSize}px Baloo 2`;
-ctx.lineWidth = percentSize * 0.12;
-ctx.strokeStyle = "rgba(0,0,0,.28)";
-ctx.strokeText(`${slices[i]}%`, textRadius, -percentSize * 0.18);
+ctx.strokeText(`${slices[i]}%`, radius * 0.58, 0);
 
-ctx.fillStyle = "#fff";
-ctx.fillText(`${slices[i]}%`, textRadius, -percentSize * 0.18);
-
-// OFF
-ctx.font = `800 ${offSize}px Baloo 2`;
-
-ctx.strokeText("OFF", textRadius, percentSize * 0.40);
-ctx.fillText("OFF", textRadius, percentSize * 0.40);
+// 🔥 TEXTO PRINCIPAL
+ctx.fillStyle = '#ffffff';
+ctx.fillText(`${slices[i]}%`, radius * 0.58, 0);
 
 ctx.restore();
   }
 
   // 🎯 Centro da roleta (IMPORTANTE — isso que sumiu antes)
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 22, 0, 2 * Math.PI);
+  ctx.arc(centerX, centerY, 28, 0, 2 * Math.PI);
   ctx.fillStyle = '#ffffff';
   ctx.fill();
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 9, 0, 2 * Math.PI);
+  ctx.arc(centerX, centerY, 12, 0, 2 * Math.PI);
   ctx.fillStyle = '#ff3d71';
   ctx.fill();
 }
