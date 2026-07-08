@@ -139,7 +139,7 @@ function spinWheel() {
   if (spinning) return;
 
   // Permite apenas 1 giro por usuário
-  if (localStorage.getItem('wheelPlayed')) {
+  if (localStorage.getItem('wheelPlayed2026')) {
     alert('Você já girou a roleta! 🎁');
     return;
   }
@@ -187,7 +187,7 @@ function spinWheel() {
       whatsappBtn.classList.remove('hidden');
 
       // Salva que já jogou
-      localStorage.setItem('wheelPlayed', 'true');
+      localStorage.setItem('wheelPlayed2026', 'true');
 
       // Confete
       confetti({
