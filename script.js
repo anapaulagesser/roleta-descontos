@@ -28,7 +28,7 @@ const colors = [
 ];
 
 // Número do WhatsApp (edite facilmente aqui)
-const WHATSAPP_NUMBER = '5548999662043';
+const WHATSAPP_NUMBER = '5548984905784';
 
 const canvas = document.getElementById('wheel');
 const ctx = canvas.getContext('2d');
